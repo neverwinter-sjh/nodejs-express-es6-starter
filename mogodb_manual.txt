@@ -1,0 +1,34 @@
+
+# Mongodb 이미지 가져오기
+docker pull monogo:4.4.1-bionic
+
+# mondodb 컨테이너 실행
+-d: 데몬으로 돌림
+-p 포트(외부:내부)
+--auth: 인증 요구
+--name: 컨테이너 이름
+
+docker run --name mongodb_server -d -p 16010:27017 mongo:4.4.1-bionic --auth
+
+# docker 외부 접속을 위한 컨테이너 생성
+docker run -it --name nodejs_server --link mongodb_server:mongodb_server nodejs-express-es6 /bin/bash
+
+# bash 접속
+docker exec -it mongodb_server bash
+
+# admin 생성
+
+mongo
+
+db.createUser({
+  user: "admin",
+  pwd: "admin1!34%^",
+  roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+})
+
+mongo -u admin -p admin1!34%^ –authenticationDatabase admin
+
+use testdb
+
+db.createUser({ user: "tester", pwd: "1234", roles: ["dbAdmin", "readWrite"] })
+

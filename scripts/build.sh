@@ -1,0 +1,1 @@
+docker build -t nodejs-express-es6 .
