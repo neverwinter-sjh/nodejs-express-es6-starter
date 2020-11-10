@@ -1,6 +1,7 @@
-# FNS API Server
+# Nodejs Express Es6 Starter
 
-FNS Project API Server for Mockup
+Nodejs, Expressjs, es6로 만들어진 starter입니다.
+Rest API용으로 적합합니다.
 
 ## Stacks
 
@@ -9,49 +10,26 @@ FNS Project API Server for Mockup
 - MongoDB
 - ES6
 
-## Installation
-
-Clone the repository and run `npm install`
+## install
 
 ```
 npm install
 ```
 
-## Starting the server
+## development
+
+```
+npm run dev
+```
+
+## build
+
+```
+npm run build
+```
+
+## production
 
 ```
 npm start
-```
-
-The server will run on port 3000. You can change this by editing `config.dev.js` file.
-
-## Endpoint
-
-- BaseUrl : http://192.168.0.100
-
-- Register: [POST] /user/register
-
-```
-{
-  userid: (string),
-  password: (string),
-  phone_number: (string)
-}
-```
-
-- Login: [POST] /user/login
-
-```
-{
-  userid: (string),
-  password: (string)
-}
-```
-
-- Chat BroadCast: [POST] /chat/broadcast
-
-```
-{
-
-}
 ```
